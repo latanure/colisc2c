@@ -12,6 +12,7 @@ public class APP {
 		userDAO.insertUser(user1);
         User user2 = userDAO.findById(100);
         System.out.println(user2);	
+        System.out.println("Fresnel");
 		context.close();
 
 	}
