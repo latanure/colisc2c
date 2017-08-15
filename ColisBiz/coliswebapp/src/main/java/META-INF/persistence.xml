@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="PU_coliswebapp" transaction-type="RESOURCE_LOCAL">
+		<class>com.colisc2c.colisapp.coliswebapp.odata.version1.model.Address</class>
+		<class>com.colisc2c.colisapp.coliswebapp.odata.version1.model.Colis</class>
+		<class>com.colisc2c.colisapp.coliswebapp.odata.version1.model.Payment</class>
+		<class>com.colisc2c.colisapp.coliswebapp.odata.version1.model.PostDetails</class>
+		<class>com.colisc2c.colisapp.coliswebapp.odata.version1.model.PostsTransactions</class>
+		<class>com.colisc2c.colisapp.coliswebapp.odata.version1.model.Roles</class>
+		<class>com.colisc2c.colisapp.coliswebapp.odata.version1.model.TripDetails</class>
+		<class>com.colisc2c.colisapp.coliswebapp.odata.version1.model.Trip</class>
+		<class>com.colisc2c.colisapp.coliswebapp.odata.version1.model.Userreviews</class>
+		<class>com.colisc2c.colisapp.coliswebapp.odata.version1.model.Users</class>
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.JDriver"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/colisdb"/>
+			<property name="javax.persistence.jdbc.user" value="root"/>
+		</properties>
+	</persistence-unit>
+</persistence>

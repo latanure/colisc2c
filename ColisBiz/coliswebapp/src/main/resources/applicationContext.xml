@@ -9,7 +9,9 @@
 	<bean id="userDAO" class="com.colisc2c.colisapp.coliswebapp.dao.user.impl.UserDAOImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	
+		<bean id="JDBCuserDAO" class="com.colisc2c.colisapp.coliswebapp.dao.user.impl.JDBCUserDAOImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 

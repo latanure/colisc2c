@@ -7,27 +7,97 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
 
-	<groupId>com.colisc2c.colisapp</groupId>
 	<artifactId>coliswebapp</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
 	<name>coliswebapp</name>
 
 	<properties>
 		<java.version>1.8</java.version>
-		<spring.version>3.2.3.RELEASE</spring.version>
+		<spring.version>4.3.1.RELEASE</spring.version>
 		<cglib.version>2.2.2</cglib.version>
+		    <javax.version>2.5</javax.version>
+    <odata.version>4.0.0</odata.version>
+    <slf4j.version>1.7.7</slf4j.version>
 	</properties>
 
 	<dependencies>
+	<!-- Olingo dependencies -->
+	    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>${javax.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.olingo</groupId>
+      <artifactId>odata-server-api</artifactId>
+      <version>${odata.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.olingo</groupId>
+      <artifactId>odata-server-core</artifactId>
+      <version>${odata.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.olingo</groupId>
+      <artifactId>odata-commons-api</artifactId>
+      <version>${odata.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.olingo</groupId>
+      <artifactId>odata-commons-core</artifactId>
+      <version>${odata.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>${slf4j.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+  <groupId>org.slf4j</groupId>
+  <artifactId>slf4j-api</artifactId>
+  <version>1.7.11</version>
+  <scope>compile</scope>
+</dependency>
+ <dependency>
+      <groupId>org.apache.cxf</groupId>
+      <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+      <version>3.1.4</version>
+</dependency> 
+<!--https://mvnrepository.com/artifact/org.apache.olingo/olingo-odata2-api-annotation -->
+<dependency>
+    <groupId>org.apache.olingo</groupId>
+    <artifactId>olingo-odata2-api-annotation</artifactId>
+    <version>2.0.9</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.apache.olingo/olingo-odata2-jpa-processor-core -->
+<dependency>
+    <groupId>org.apache.olingo</groupId>
+    <artifactId>olingo-odata2-jpa-processor-core</artifactId>
+    <version>2.0.9</version>
+</dependency> 
+
+    
 		<!-- Spring core & mvc -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		
+		<!-- This javaee-api dependency contains all Java EE 7 APIs (from EJB, JTA, JCA over CDI to JPA) -->
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
+            <scope>provided</scope>
+        </dependency>		
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
@@ -38,21 +108,6 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
-			<version>${spring.version}</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
-			<version>${spring.version}</version>
-			<type>jar</type>
-			<scope>test</scope>
 		</dependency>
 
 		<!-- CGLib for @Configuration -->
@@ -65,12 +120,7 @@
 
 
 		<!-- Servlet Spec -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.4</version>
-			<scope>provided</scope>
-		</dependency>
+
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
@@ -82,8 +132,8 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.26</version>
-			</dependency>
-			<dependency>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
 			<version>${spring.version}</version>
@@ -99,17 +149,8 @@
 			  <groupId>com.colisc2c.colisapp</groupId>
 			  <artifactId>colislib</artifactId>
 			  <version>0.0.1-SNAPSHOT</version>
-			  <scope>compile</scope>
-			 </dependency>
+					 </dependency>
 	</dependencies>
-
-	<repositories>
-		<repository>
-			<id>springsource-milestones</id>
-			<name>SpringSource Milestones Proxy</name>
-			<url>https://oss.sonatype.org/content/repositories/springsource-milestones</url>
-		</repository>
-	</repositories>
 
 	<build>
 		<finalName>coliswebapp</finalName>

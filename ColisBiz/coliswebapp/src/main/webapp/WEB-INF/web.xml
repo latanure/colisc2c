@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
-	<display-name>coliswebapp</display-name>
-	<context-param>
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" id="WebApp_1501107129366">
+	<display-name id="DisplayName_1501107130035">coliswebapp</display-name>
+	<context-param id="ParamValue_1501107130049">
 		<param-name>contextClass</param-name>
 		<param-value>
 			org.springframework.web.context.support.AnnotationConfigWebApplicationContext
@@ -12,28 +12,54 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-
 	<servlet>
+		  <servlet-name>OdataServlet</servlet-name>
+		  <servlet-class>com.colisc2c.odata.web.ColisProductServlet</servlet-class>
+		  <load-on-startup>1</load-on-startup>
+	</servlet>
+		
+	<servlet-mapping>
+		  <servlet-name>OdataServlet</servlet-name>
+		  <url-pattern>/OdataService.svc/*</url-pattern>
+	</servlet-mapping>
+<!-- 	<servlet id="Servlet_1501107130042">
 		<servlet-name>SpringDispatcher</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<init-param>
+		<init-param id="ParamValue_1501107130045">
 			<param-name>contextClass</param-name>
 			<param-value>
 				org.springframework.web.context.support.AnnotationConfigWebApplicationContext
 			</param-value>
 		</init-param>
-		<init-param>
+		<init-param id="ParamValue_1501107130047">
 			<param-name>contextConfigLocation</param-name>
 			<param-value>com.colisc2c.colisapp.coliswebapp</param-value>
 		</init-param>
-		<load-on-startup>1</load-on-startup>
+		<load-on-startup>3</load-on-startup>
 	</servlet>
-	<servlet-mapping>
+	<servlet-mapping id="ServletMapping_1501107130039">
 		<servlet-name>SpringDispatcher</servlet-name>
-		<url-pattern>/</url-pattern>
-	</servlet-mapping>
-
-	<session-config>
+		<url-pattern>/</url-pattern> 
+	</servlet-mapping> --> 
+<!-- oData servlet for service -->
+<servlet id="Servlet_1501207546299">
+    <servlet-name>ODataServlet2</servlet-name>
+    <servlet-class>org.apache.cxf.jaxrs.servlet.CXFNonSpringJaxrsServlet</servlet-class>
+    <init-param id="ParamValue_1501207546327">
+      <param-name>javax.ws.rs.Application</param-name>
+      <param-value>org.apache.olingo.odata2.core.rest.app.ODataApplication</param-value>
+    </init-param>
+    <init-param id="ParamValue_1501207546360">
+      <param-name>org.apache.olingo.odata2.service.factory</param-name>
+      <param-value>org.apache.olingo.odata2.jpa.processor.ref.web.ColisServiceFactory</param-value>
+    </init-param>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+  <servlet-mapping id="ServletMapping_1501207546125">
+    <servlet-name>ODataServlet2</servlet-name>
+    <url-pattern>/colisc2c.svc/*</url-pattern>
+  </servlet-mapping>
+<!-- 	<session-config>
 		<session-timeout>30</session-timeout>
-	</session-config>
+	</session-config> -->
 </web-app>

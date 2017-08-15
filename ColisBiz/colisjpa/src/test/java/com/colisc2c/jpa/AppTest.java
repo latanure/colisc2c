@@ -1,4 +1,4 @@
-package com.colisc2c.colisapp.colisjpa;
+package com.colisc2c.jpa;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
